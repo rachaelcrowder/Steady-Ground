@@ -1,0 +1,1042 @@
+<title>Steady Ground — Inner Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #F0F2EF;
+  --bg-alt:    #E4E8E2;
+  --bg-dark:   #3A5B45;
+  --bg-deep:   #2B4333;
+  --text:      #1C2520;
+  --text-2:    #5C6E62;
+  --text-on:   #EDF1EB;
+  --text-on-2: #9DBAA6;
+  --accent:    #3A5B45;
+  --accent-mid:#7CA992;
+  --cta:       #96581A;
+  --cta-h:     #7A4614;
+  --border:    #CAD0C8;
+  --border-dk: #4A6E58;
+  --nav-h:     64px;
+  --mw:        1100px;
+  --pad:       clamp(20px,4vw,48px);
+  --sp:        clamp(56px,7vw,96px);
+  --r:         8px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111913; --bg-alt:#172018;
+    --text:#D8E3D5; --text-2:#829E8B;
+    --border:#283527;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111913; --bg-alt:#172018;
+  --text:#D8E3D5; --text-2:#829E8B;
+  --border:#283527;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;text-wrap:balance;font-weight:400}
+a{color:inherit}
+p{color:var(--text-2);line-height:1.8}
+
+/* LAYOUT */
+.inner{max-width:var(--mw);margin:0 auto;padding:0 var(--pad)}
+.sec{padding:var(--sp) 0;background:var(--bg)}
+.sec-alt{padding:var(--sp) 0;background:var(--bg-alt)}
+.sec-dark{padding:var(--sp) 0;background:var(--bg-dark)}
+.sec-deep{padding:var(--sp) 0;background:var(--bg-deep)}
+
+/* NAV (static reference) */
+nav{
+  height:var(--nav-h);background:var(--bg);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 var(--pad);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.nav-name{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav-links a{text-decoration:none;color:var(--text-2);font-size:.875rem}
+.nav-cta{background:var(--cta)!important;color:#fff!important;padding:8px 18px;border-radius:4px;font-weight:500}
+
+/* PAGE INDICATOR */
+.page-indicator{
+  background:var(--bg-deep);
+  padding:12px var(--pad);
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--text-on-2);font-weight:500;text-align:center;
+}
+
+/* EYEBROW */
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-mid);font-weight:500;margin-bottom:14px}
+.eyebrow-on{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:var(--text-on-2);font-weight:500;margin-bottom:14px}
+
+/* PAGE HERO */
+.page-hero{
+  background:var(--bg-dark);
+  padding:72px var(--pad) 80px;
+}
+.page-hero .inner{max-width:720px}
+.page-hero h1{font-size:clamp(2.2rem,4vw,3.6rem);color:var(--text-on);font-weight:300;font-style:italic;line-height:1.1;margin:16px 0 22px;letter-spacing:-.02em}
+.page-hero .lede{font-size:1.1rem;color:var(--text-on-2);line-height:1.75;font-weight:300}
+
+/* SECTION HEADS */
+.sec-head{max-width:600px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 16px}
+.sec-head p{font-size:.975rem}
+
+/* PROSE COLUMNS */
+.prose{max-width:680px}
+.prose p{margin-bottom:18px;font-size:.975rem}
+.prose h3{font-size:1.15rem;font-style:italic;color:var(--text);margin:32px 0 10px}
+.prose h4{font-size:.875rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-mid);margin:24px 0 8px;font-family:'DM Sans',system-ui,sans-serif;font-weight:500}
+.prose ul{margin:10px 0 18px 20px;list-style:disc}
+.prose ul li{font-size:.925rem;color:var(--text-2);line-height:1.7;margin-bottom:6px}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+
+/* CARDS */
+.card{border:1px solid var(--border);border-radius:var(--r);padding:32px 28px}
+.card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-mid);font-weight:500;margin-bottom:10px}
+.card h3{font-size:1.05rem;font-weight:400;font-style:italic;color:var(--text);margin-bottom:10px}
+.card p{font-size:.875rem;line-height:1.7}
+
+/* PILLAR GRID */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.pillar{background:var(--bg);padding:36px 32px}
+.pill-tag{display:inline-block;border:1px solid var(--border);color:var(--text-2);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.09em;padding:3px 9px;border-radius:3px;margin-bottom:16px}
+.pillar h3{font-size:1.1rem;font-weight:400;font-style:italic;color:var(--text);margin-bottom:10px}
+.pillar p{font-size:.875rem;line-height:1.72}
+.pillar ul{margin:10px 0 0 18px;list-style:disc}
+.pillar ul li{font-size:.85rem;color:var(--text-2);line-height:1.65;margin-bottom:5px}
+
+/* PRINCIPLE LIST */
+.principle-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:32px 0}
+.principle{background:var(--bg-alt);padding:24px 28px;display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start}
+.principle-num{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:var(--accent-mid);line-height:1}
+.principle-body h4{font-size:.95rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:6px;font-weight:400}
+.principle-body p{font-size:.85rem;line-height:1.65}
+
+/* OUTCOMES LIST */
+.outcomes{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.outcome{background:var(--bg);padding:16px 24px;display:flex;gap:14px;align-items:start;font-size:.9rem;color:var(--text-2);line-height:1.65}
+.outcome::before{content:'→';color:var(--accent-mid);font-size:.8rem;flex-shrink:0;margin-top:.1em}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.t-item{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:24px 0;border-top:1px solid var(--border)}
+.t-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent-mid);font-weight:500;padding-top:.1em}
+.t-body h4{font-size:.95rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:6px;font-weight:400}
+.t-body p{font-size:.875rem;line-height:1.65}
+
+/* RESOURCE TILES */
+.res-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.res-tile{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--r);padding:24px 20px;
+}
+.res-tile-icon{width:36px;height:36px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.res-tile h4{font-size:.9rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:8px;font-weight:400}
+.res-tile p{font-size:.8rem;line-height:1.6}
+
+/* PULLQUOTE */
+.pullquote{border-left:3px solid var(--accent-mid);padding-left:24px;margin:32px 0}
+.pullquote p{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:300;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:8px}
+.pullquote cite{font-size:.75rem;color:var(--text-2);font-style:normal;text-transform:uppercase;letter-spacing:.07em}
+
+/* BIO LAYOUT */
+.bio-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+.bio-plate{background:var(--bg-dark);border-radius:var(--r);padding:40px 28px;text-align:center}
+.bio-logo{width:80px;height:80px;display:block;margin:0 auto 20px}
+.bio-name{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;color:var(--text-on);margin-bottom:6px}
+.bio-creds{font-size:.72rem;color:var(--text-on-2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
+.bio-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.bio-tag{font-size:.68rem;border:1px solid var(--border-dk);color:var(--text-on-2);padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.07em}
+.bio-content h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(--text);margin:8px 0 28px;line-height:1.25}
+.bio-content p{font-size:.975rem;margin-bottom:16px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-field label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:500;color:var(--text-2)}
+.form-field input,
+.form-field textarea,
+.form-field select{
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:var(--r);padding:12px 14px;
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;
+  color:var(--text);width:100%;
+}
+.form-field textarea{min-height:120px;resize:vertical}
+.btn-p{display:inline-block;background:var(--cta);color:#fff;padding:13px 26px;border-radius:4px;font-weight:500;font-size:.9rem;text-decoration:none;transition:background .15s;border:none;cursor:pointer;font-family:inherit}
+.btn-p:hover{background:var(--cta-h)}
+.contact-aside{background:var(--bg-alt);border-radius:var(--r);padding:32px 28px}
+.contact-aside h3{font-size:1rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:16px;font-weight:400}
+.contact-aside p{font-size:.875rem;margin-bottom:14px}
+.contact-detail{font-size:.9rem;color:var(--text-2);margin-bottom:10px;display:flex;gap:10px;align-items:center}
+
+/* FOOTER */
+footer{background:var(--bg-deep);padding:44px var(--pad) 36px}
+.foot-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid var(--border-dk)}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-name{font-family:'Fraunces',Georgia,serif;color:var(--text-on);font-size:.95rem;opacity:.75}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{color:var(--text-on-2);text-decoration:none;font-size:.85rem}
+.foot-copy{color:var(--text-on-2);font-size:.75rem;opacity:.55;margin-top:24px}
+
+/* LOGO */
+.logo-svg{fill:currentColor}
+.logo-accent{color:var(--accent)}
+.logo-on{color:var(--text-on)}
+
+/* SEPARATOR */
+.page-sep{
+  text-align:center;padding:32px var(--pad);
+  background:var(--bg-deep);color:var(--text-on-2);
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;
+  font-weight:500;border-top:1px solid var(--border-dk);
+  border-bottom:1px solid var(--border-dk);
+}
+
+/* LOCKBADGE */
+.lock-note{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.78rem;color:var(--text-on-2);
+  border:1px solid var(--border-dk);padding:6px 14px;
+  border-radius:20px;margin-top:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .two-col,.three-col,.pillars,.bio-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .t-item{grid-template-columns:1fr}
+  .res-tiles{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .res-tiles{grid-template-columns:1fr}
+  .principle{grid-template-columns:1fr}
+}
+</style>
+
+<!-- SHARED SVG DEFS -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <defs>
+    <g id="sg-fig">
+      <circle cx="0" cy="-12" r="4"/>
+      <polygon points="-4.5,-7.5 4.5,-7.5 2.8,-0.5 -2.8,-0.5"/>
+      <rect x="-11.5" y="-7.2" width="7" height="2.6" rx="1.3"/>
+      <rect x="4.5" y="-7.2" width="7" height="2.6" rx="1.3"/>
+      <g transform="translate(-1.6,-0.5) rotate(17.19)"><rect x="-1.5" y="0" width="3" height="8" rx="1.3"/></g>
+      <g transform="translate(1.6,-0.5) rotate(-17.19)"><rect x="-1.5" y="0" width="3" height="8" rx="1.3"/></g>
+    </g>
+  </defs>
+</svg>
+
+<!-- SHARED NAV (reference) -->
+<nav>
+  <a href="/" class="nav-brand">
+    <svg class="logo-svg logo-accent" width="32" height="32" viewBox="0 0 100 100" aria-hidden="true"><use href="#sg-fig" transform="rotate(0,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(45,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(90,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(135,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(180,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(225,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(270,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(315,50,50) translate(50,19)"/></svg>
+    <span class="nav-name">Steady Ground</span>
+  </a>
+  <div class="nav-links">
+    <a href="/programme">The Programme</a>
+    <a href="/framework">The Framework</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+    <a href="/contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1 · THE PROGRAMME
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — The Programme</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">The Programme</p>
+    <h1>Two days. One cohort.<br>Lasting practice.</h1>
+    <p class="lede">Steady Ground is a fully co-facilitated, two-day train-the-trainer programme for gender-based violence educators. It equips facilitators with the trauma-informed skills, theoretical grounding, and practical tools to design and deliver TFGBV educational sessions safely, ethically, and effectively.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <div class="sec-head" style="margin-bottom:28px">
+          <p class="eyebrow">Format & Cohort</p>
+          <h2>Designed for how adult learning actually works.</h2>
+        </div>
+        <p>Steady Ground is delivered as two three-hour in-person sessions, scheduled on consecutive or closely spaced mornings. Each session combines didactic teaching, live modelling, supervised practice, case-based learning, and structured debrief.</p>
+        <p>Recommended cohort size is 16–24 participants. Even numbers are preferred to support dyad and triad work throughout both days. Participants complete a short pre-work assignment (approximately 35 minutes of video) before Day 1.</p>
+        <p>Four to six weeks after Day 2, the cohort reconvenes for a 90-minute Community of Practice session — a structured, co-facilitated follow-up that bridges the gap between initial training and embedded practice change.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"Co-facilitation is not a contingency. It is pedagogy."</p>
+          <cite>Steady Ground Design Principles</cite>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-2);line-height:1.75">Steady Ground is fully co-facilitated throughout both days. Two practitioners sharing active teaching responsibility models the co-regulation, shared power, and mutual accountability that participants are being trained to develop. Participants don't just hear about these principles — they experience them in the room.</p>
+        <p style="font-size:.9rem;color:var(--text-2);line-height:1.75;margin-top:12px">The second facilitator leads content segments, runs role-play rounds, tracks group regulation, and accompanies a participant to the quiet room when needed. This is a full teaching partnership, not a support role.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Day 1 · Foundations</p>
+      <h2>The principles, the neuroscience, the protocol.</h2>
+      <p>The first day builds the theoretical and relational foundation participants will draw on for the rest of their facilitation lives. By the end of Day 1, participants have moved from intellectual understanding to embodied experience of the core concepts.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-label">Opening</div>
+        <div class="t-body">
+          <h4>Welcome, community agreements, and nervous system orientation</h4>
+          <p>The day opens with a brief grounding practice, community agreement-building, and an orientation to how the training itself is designed according to the principles it teaches. The structure of the day is made visible and transparent from the start.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 1</div>
+        <div class="t-body">
+          <h4>Trauma-Informed Principles: SAMHSA in Practice</h4>
+          <p>An introduction to SAMHSA's six trauma-informed principles — safety, trustworthiness, peer support, collaboration, empowerment, and cultural humility — applied not to service delivery but to the design of learning environments where participants may carry lived experience of the content being discussed. Participants examine what each principle looks like in a workshop room.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 2</div>
+        <div class="t-body">
+          <h4>The TFGBV Landscape: Evidence-not-Exposure</h4>
+          <p>A grounded overview of the nature, prevalence, and impact of tech-facilitated gender-based violence — taught through categories, research evidence, and survivor-informed framing. No abusive content is displayed, read aloud, or reenacted. This posture is modelled throughout and is central to what participants are being trained to do.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 3</div>
+        <div class="t-body">
+          <h4>Polyvagal Basics and the Co-Regulation Lab</h4>
+          <p>An accessible introduction to Polyvagal Theory — the three autonomic circuits governing human response, and what they mean for a room full of people engaging with difficult content. Participants complete a structured co-regulation exercise that produces a genuine, first-person experience of the concepts rather than an intellectual understanding of them.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 4</div>
+        <div class="t-body">
+          <h4>Parts-Informed Facilitation</h4>
+          <p>An introduction to Internal Family Systems as a facilitation lens. Participants learn to recognize protective responses in groups — dominance, over-helping, checking out, humor-deflection — as adaptive rather than problematic, and to meet them with curiosity rather than judgment.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 5</div>
+        <div class="t-body">
+          <h4>Micro-Skills, Invitational Language, and the CARE Protocol</h4>
+          <p>Participants learn the concrete language of trauma-informed facilitation: how to open a session, issue content notes, offer genuine choice, and slow their pacing. The CARE Protocol (Center, Acknowledge, Restore Choice, Enlist Support) is introduced as a four-step framework for facilitating disclosures, strong affect, and common facilitation ruptures. Case studies are used to practice application.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Day 2 · Application & Practice</p>
+      <h2>Rupture, repair, and the skills that hold.</h2>
+      <p>The second day moves from knowledge to practiced competence. Participants apply what they have learned in structured role-play scenarios, deepen their ethical grounding, and leave with a personal care plan and a take-home design exercise.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-label">Opening</div>
+        <div class="t-body">
+          <h4>Check-in and Day 1 integration</h4>
+          <p>A brief grounding practice and reflective check-in to surface what has settled since Day 1, what questions have emerged, and what participants most want to practice today.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 6</div>
+        <div class="t-body">
+          <h4>Rupture and Repair in Context</h4>
+          <p>What does it mean for something to go wrong in the room — and what does it mean to repair it? Participants examine common facilitation ruptures specific to TFGBV content: disclosures, victim-blaming, tone-policing, microaggressions, flooding, and live threat notifications. The difference between rupture and failure is explored, and the possibility of repair becomes part of participants' facilitation vocabulary.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Practice · Round 1</div>
+        <div class="t-body">
+          <h4>Role-Play with Competency Feedback</h4>
+          <p>Structured role-play in small groups using facilitated scenario cards. Each participant has a chance to practice a facilitation rupture response while their partner plays the observer role using a structured competency feedback tool. Debrief is facilitated by the training team.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Practice · Round 2</div>
+        <div class="t-body">
+          <h4>Advanced Scenarios</h4>
+          <p>A second round of role-play using more complex scenarios: a live threat notification from a participant, a participant experiencing flooding, a microaggression in the room. Participants choose their scenario based on what they most need to practice.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 7</div>
+        <div class="t-body">
+          <h4>Ethics, Scope, and PEI Referral Pathways</h4>
+          <p>Facilitators are not counsellors, and the training is clear about scope. This module addresses confidentiality limits, mandatory reporting obligations, and how to navigate disclosures that exceed a facilitator's scope. Participants leave with a PEI referral map of eight local organizations with contact information and warm handoff language.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Module 8</div>
+        <div class="t-body">
+          <h4>Trauma-Informed Presentation Design (introduced)</h4>
+          <p>An introduction to a six-section arc for designing trauma-informed presentations on online harassment. This is introduced in the session and completed as a take-home design exercise, using a structured slide map template. The goal is for each participant to leave with a draft design adapted to their specific audience.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-label">Closing</div>
+        <div class="t-body">
+          <h4>Facilitator Sustainability and Personal Care Planning</h4>
+          <p>The session closes with an honest conversation about the cost of this work — vicarious trauma, moral distress, and the particular demands of teaching traumatogenic content — and participants complete a personal facilitator care plan. The Community of Practice session and website resources are introduced. The training closes the way it opened: together, grounded, and with care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Learning Outcomes</p>
+      <h2>What participants are able to do when they leave.</h2>
+      <p>By the close of Day 2, participants will be able to:</p>
+    </div>
+    <div class="outcomes">
+      <div class="outcome">Explain SAMHSA's six trauma-informed principles and apply them to their own facilitation design</div>
+      <div class="outcome">Use Polyvagal Theory basics: co-regulation, pacing, and creating neurological safety in a workshop setting</div>
+      <div class="outcome">Recognize activation and protective patterns in groups without pathologizing, and respond with appropriate tools</div>
+      <div class="outcome">Apply the CARE Protocol to common facilitation ruptures including disclosure, strong affect, microaggressions, victim-blaming, and tone-policing</div>
+      <div class="outcome">Facilitate TFGBV content using an evidence-not-exposure posture, content notes, and invitational language</div>
+      <div class="outcome">Navigate scope, confidentiality limits, and PEI referral pathways ethically</div>
+      <div class="outcome">Design a trauma-informed presentation on online harassment adapted to their specific audience</div>
+      <div class="outcome">Name their own vicarious trauma risks and commit to a personal facilitator care plan</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">What Participants Receive</p>
+      <h2>Materials built for the room and beyond it.</h2>
+      <p>All materials are developed specifically for this programme and are provided in print-ready digital format. Participants keep everything.</p>
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Reference</div>
+        <h3>CARE Protocol Card</h3>
+        <p>The full four-step protocol with scripted language for common facilitation ruptures — designed to be kept close and used in the moment.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Practice Tool</div>
+        <h3>Personal Regulation Menu</h3>
+        <p>A five-channel self-regulation tool with write-in space, developed collaboratively during the training and personalized to each participant.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Practice Scenarios</div>
+        <h3>Case Study Pack</h3>
+        <p>Three facilitation rupture scenarios (disclosure, victim-blaming, tone-policing) for use in training and as a reference resource after.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Design Exercise</div>
+        <h3>TI Presentation Slide Map</h3>
+        <p>A six-section arc template for designing a trauma-informed presentation on online harassment, adapted to the participant's own audience and context.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Local Resource</div>
+        <h3>PEI Referral Map</h3>
+        <p>Eight local organizations with contact information and scripted warm handoff language for when a participant discloses beyond the facilitator's scope.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sustainability</div>
+        <h3>Facilitator Care Plan</h3>
+        <p>A structured personal care plan completed during the final session, naming each participant's vicarious trauma risks and their commitments going forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2 · THE FRAMEWORK
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — The Framework</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">The Framework</p>
+    <h1>Grounded in evidence,<br>built for practice.</h1>
+    <p class="lede">Steady Ground integrates four evidence-based frameworks into a coherent, field-tested facilitation practice. Each one shapes not only what participants learn but the learning environment they experience.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">Why four frameworks?</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 20px">Most facilitation training teaches content. This one teaches practice.</h2>
+        <p>Knowing what TFGBV is does not prepare a facilitator for the moment someone in the room is living it. Understanding trauma-informed principles intellectually is not the same as holding a room according to them. The frameworks at the heart of Steady Ground are integrated and mutually reinforcing — chosen not because they are individually persuasive, but because together they describe the full terrain of what happens in a room where difficult content is being taught.</p>
+        <p>SAMHSA establishes the principles. Polyvagal Theory explains the neuroscience. IFS offers the relational lens. Feminist pedagogy holds the structural analysis. Each one is essential; none of them is sufficient alone.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"The form of a learning experience teaches as much as its content."</p>
+          <cite>Intersectional Feminist Pedagogy principle</cite>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-2);line-height:1.75">Steady Ground is not a programme about these frameworks. It is a programme that enacts them. The learning environment is designed according to the same principles it teaches — which means participants don't just hear about co-regulation, shared power, and genuine choice. They experience them, in the room, with their training cohort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 1 · SAMHSA</p>
+      <h2>The six trauma-informed principles — in the room, not just in theory.</h2>
+      <p>The Substance Abuse and Mental Health Services Administration (SAMHSA) framework articulates six core principles for trauma-informed approaches. In Steady Ground, these principles are applied not to survivor-facing service delivery, but to the design of any learning environment where participants may carry lived experience of the content being discussed.</p>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle">
+        <div class="principle-num">1</div>
+        <div class="principle-body">
+          <h4>Safety</h4>
+          <p>Physical and emotional safety is established — not assumed — through transparent communication, consistent structure, community agreements, and the provision of genuine choices about participation. A quiet room is available throughout both days. Participants always know what is coming next.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">2</div>
+        <div class="principle-body">
+          <h4>Trustworthiness & Transparency</h4>
+          <p>The programme's design, purpose, and structure are made explicit. Facilitators explain why they do what they do. Scope and confidentiality limits are clearly stated. Participants are not surprised by anything about the day, including difficult content.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">3</div>
+        <div class="principle-body">
+          <h4>Peer Support</h4>
+          <p>The cohort model is central to Steady Ground's design. Participants learn alongside people doing the same work, and peer consultation is structured into both days and the follow-up Community of Practice session. This work is not done alone.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">4</div>
+        <div class="principle-body">
+          <h4>Collaboration & Mutuality</h4>
+          <p>The power dynamic between facilitators and participants is made visible and actively flattened. Community agreements are built together, not handed down. Participants shape the session through their expertise and experience.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">5</div>
+        <div class="principle-body">
+          <h4>Empowerment, Voice & Choice</h4>
+          <p>Participation is always invitational. Content notes are offered before difficult material. Participants are given genuine options about how they engage — and the options are real, not performative. The programme models the exact facilitation behaviour it is teaching.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">6</div>
+        <div class="principle-body">
+          <h4>Cultural, Historical & Gender Issues</h4>
+          <p>TFGBV is produced by systems of power, not individuals. The programme's analysis is intersectional throughout, attending explicitly to how race, disability, Indigeneity, and sexual orientation compound vulnerability to online harassment and shape what safety looks like in a room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 2 · Polyvagal Theory</p>
+      <h2>The neuroscience of why safety is not just a feeling.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Porges' Polyvagal Theory describes three autonomic circuits governing human response to perceived safety and threat. The ventral vagal complex supports social engagement, connection, and learning. The sympathetic system drives fight and flight. The dorsal vagal complex governs freeze and collapse. These states are not chosen — they are neurological responses that happen to us, in real time, in response to what the body perceives as safe or dangerous.</p>
+        <p>For facilitators delivering TFGBV education, this matters at every level. Participants who carry lived experience of the content may enter a sympathetic or dorsal state without any visible warning sign. A facilitator who cannot recognize the difference between disengagement and freeze, or between strong engagement and activation, will respond in ways that escalate rather than resolve the situation.</p>
+        <h3>Co-regulation as a facilitation tool</h3>
+        <p>Co-regulation is the process by which one regulated nervous system helps regulate another. When a facilitator is calm, their voice, pace, posture, and presence have a measurable effect on the nervous systems around them. This is not metaphor — it is neurobiological reality, and it is the primary reason that facilitator self-regulation is a professional competency, not a personal preference.</p>
+        <p>Steady Ground trains facilitators to recognize activation cues in groups, to slow their own pace and voice when the room's regulation is shifting, and to use the presence of a co-facilitator — the most powerful co-regulatory resource in a co-facilitated room — deliberately.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-label">Research basis</div>
+          <h3>Learning requires a regulated nervous system</h3>
+          <p>When a learning environment feels unpredictable or emotionally charged, stress disrupts prefrontal cortex function. Attention narrows. Memory encoding is compromised. This is not about willingness to learn — it is neurobiology. The design of a predictable, structured, and physically comfortable learning environment is an evidence-based imperative.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">In the room</div>
+          <h3>What this looks like in practice</h3>
+          <p>Facilitators learn to read autonomic cues — scanning for signs of activation or shutdown — and to respond before rupture, not after. The co-regulation lab in Day 1 produces a first-person experience of these dynamics rather than an intellectual understanding of them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 3 · Internal Family Systems</p>
+      <h2>Protective patterns — with curiosity, not judgment.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Internal Family Systems (IFS), developed by Richard Schwartz, is a non-pathologizing framework for understanding protective responses in groups. In any learning environment where content is emotionally charged, participants may present with "parts" that have developed to manage vulnerability: the participant who dominates discussion, the one who deflects with humour, the one who becomes very still and checks out, the one who rushes to fix everyone else's distress.</p>
+        <p>These responses are not problems to be managed. They are adaptive protections — the result of prior experiences in rooms where it was not safe to be openly affected. A parts-informed facilitator recognizes them as such, and responds with curiosity and genuine warmth rather than redirection, correction, or performance of neutrality.</p>
+        <h3>What parts-informed facilitation looks like</h3>
+        <p>It means not calling on the person who has checked out, and not filling the space they have left with your own material. It means acknowledging the protector who is dominating — directly, warmly, and without shaming — and creating enough space for others to contribute. It means not being alarmed by the person in tears, and not being deceived by the person laughing.</p>
+        <p>IFS offers facilitators a vocabulary for internal experience that is both accessible and clinically grounded, and that works as well in a training room as in a therapy room.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"Protective responses in groups are adaptive — they tell you something about the room."</p>
+          <cite>Steady Ground, Day 1</cite>
+        </div>
+        <div class="card">
+          <div class="card-label">Key distinction</div>
+          <h3>Parts vs. pathology</h3>
+          <p>A parts-informed lens is a non-pathologizing one. The participant who is deflecting with humour is not being difficult. The participant who has gone very quiet is not being passive-aggressive. Each is doing exactly what they know how to do in a room that feels like it might not be safe. The facilitator's job is to make the room safer — not to manage the symptom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 4 · Feminist Pedagogy</p>
+      <h2>The structure of a room is also a message about power.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Intersectional feminist pedagogy holds that GBV is produced by systems of power, not by individual perpetrators. This analysis is not background knowledge — it is the lens through which every element of the training is designed and delivered.</p>
+        <p>What does it mean, practically? It means the training room is designed to enact shared power, not to describe it. Community agreements are built together. Facilitator expertise is presented as one kind of knowing, not the only kind. The lived experience participants bring to the room is treated as expertise, not as risk to be managed.</p>
+        <h3>Gender-transformative, not gender-accommodating</h3>
+        <p>There is an important distinction between training that accommodates gender — acknowledging that women face specific challenges and trying not to make things worse — and training that is gender-transformative, meaning it actively challenges the power structures and norms that produce gender inequality. Steady Ground is the latter. It attends explicitly to how gender compounds vulnerability to TFGBV, and it treats the elimination of that vulnerability as a structural, not an individual, project.</p>
+        <h3>Intersectionality as method</h3>
+        <p>Race, disability, Indigeneity, gender expression, and sexual orientation are not add-ons to the gender analysis. They are part of it. Women facing compounded marginalization on the basis of these identities experience heightened rates and more severe forms of TFGBV. The training content and facilitation approach must reflect this complexity — not in a perfunctory way, but as a fundamental orientation to the work.</p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Design principle</div>
+          <h3>The form teaches as much as the content</h3>
+          <p>A training about shared power that does not share power has already undermined its own message. Steady Ground is designed so that the experience of being in the room confirms and extends what the content teaches — not because it is tidy, but because it is true.</p>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <div class="card-label">Evidence-not-exposure</div>
+          <h3>Teaching TFGBV without causing it</h3>
+          <p>A feminist approach to TFGBV education means not reproducing harm in the name of education. Abusive content is never displayed, read aloud, or re-enacted. Facilitators teach through evidence, categories, and survivor-informed framing — and they are trained to facilitate the same way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 3 · RESOURCES
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — Resources</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">For Participants</p>
+    <h1>Your ongoing resource.</h1>
+    <p class="lede">The Steady Ground resource hub is a living companion to the training — available to all programme participants throughout and beyond the cohort year. Materials from both days are archived here, alongside curated readings, video, and resources to support your ongoing facilitation practice.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">About the Resource Hub</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 20px">Built to support you after you leave the room.</h2>
+        <p>The hardest part of this work often happens not in the training but weeks later — the moment something goes sideways in your session and you can't quite remember which CARE Protocol step to reach for, or you're preparing a presentation and want to revisit the evidence-not-exposure posture. The resource hub exists for those moments.</p>
+        <p>New resources are added throughout the cohort year. When the Community of Practice session produces materials — case studies you workshopped together, referrals you updated, tools you adapted — those are added here too. The hub grows with the cohort's practice.</p>
+        <div class="lock-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+          Participant resources are password protected. Your access code was provided at training.
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Getting access</div>
+          <h3>Your password</h3>
+          <p>Access to participant materials is password protected. Your unique access code was shared in the post-session follow-up email sent two days after Day 2. If you cannot locate yours, contact Rachael at <a href="mailto:rachael@presentmoment.ca" style="color:var(--accent)">rachael@presentmoment.ca</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">What's Here</p>
+      <h2>Materials from both days, plus ongoing resources.</h2>
+    </div>
+    <div class="res-tiles">
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h4>Participant Materials</h4>
+        <p>All handouts from both training days: CARE Protocol card, regulation menu, case study pack, role-play packs A and B, TI presentation slide map.</p>
+      </div>
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        </div>
+        <h4>Slide Deck</h4>
+        <p>The full Steady Ground slide deck with speaker notes, available for your reference and to support your own facilitation preparation.</p>
+      </div>
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h4>Reading & Video Library</h4>
+        <p>Curated readings and videos extending the training content: Polyvagal Theory, IFS, SAMHSA, TFGBV research, and feminist facilitation practice.</p>
+      </div>
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h4>Community of Practice</h4>
+        <p>Notes, materials, and resources from the CoP session, added after the follow-up meeting. Updated as the cohort's practice continues to develop.</p>
+      </div>
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <h4>PEI Referral Map</h4>
+        <p>Updated contact information for eight local organizations, with warm handoff language for referrals that exceed facilitation scope.</p>
+      </div>
+      <div class="res-tile">
+        <div class="res-tile-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h4>Facilitator Care Resources</h4>
+        <p>Resources to support your ongoing wellbeing: vicarious trauma, burnout prevention, and the kind of care that makes sustained work in this field possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 4 · ONGOING LEARNING
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — Ongoing Learning</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">Ongoing Learning</p>
+    <h1>The training doesn't end when the room empties.</h1>
+    <p class="lede">The Community of Practice session is the evidence-based bridge between what participants learn in the room and what they actually do in their facilitation practice. It is also where the real learning begins.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">Community of Practice</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 20px">Because practice change happens in between the sessions.</h2>
+        <p>The research on train-the-trainer models is consistent on this point: the effectiveness of a training is not determined in the room. It is determined in the weeks that follow — when participants return to their organizations and try to apply what they learned without the training team in the room, without the cohort around them, and often without any structured support for the challenges they encounter.</p>
+        <p>The Steady Ground Community of Practice session addresses this directly. Held four to six weeks after Day 2, it is a 90-minute, co-facilitated session that gives participants a structured space to debrief their real facilitation experiences, consult with peers and facilitators, and renew their commitments to practice.</p>
+        <p>The CoP session is not a review of training content. It is a peer consultation that uses training frameworks to work through real situations participants have encountered in the field — and that begins from the assumption that each participant has already done something hard, and deserves support in making sense of it.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-label">Format</div>
+          <h3>90 minutes · co-facilitated · in-person or virtual</h3>
+          <p>The CoP session can be held in person or virtually, depending on the cohort's needs. It is structured as peer consultation: participants bring situations they have encountered since the training and work through them using the frameworks and tools from both training days.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Structure</div>
+          <h3>What happens in the room</h3>
+          <p>The session opens with a brief check-in, moves through structured peer consultation on facilitation situations participants bring, includes a facilitation debrief for any completed presentations, reviews and renews personal care commitments, and closes with a design review for upcoming facilitation work. Resources added to the hub since training are introduced.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">What the Evidence Says</p>
+      <h2>Why follow-up makes the difference.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>A 2023 study published in the Journal of Clinical Psychiatry found that trauma-informed training resulted in significant, sustained improvements in organizational knowledge, attitudes, and policies — but that these improvements were substantially stronger when training was accompanied by structured follow-up and peer consultation (Mangus et al., 2023).</p>
+        <p>Parallel research on train-the-trainer models in gender-based violence education consistently finds that the degree of practice change is predicted less by the quality of the initial training and more by the quality of the support structure that follows it (Şimşek &amp; Uğur, 2024). A well-designed training without follow-up produces knowledge. A well-designed training with structured follow-up produces practice.</p>
+        <p>This is why the Community of Practice session is not an optional add-on to Steady Ground. It is part of the programme's design — the component that makes the investment in Days 1 and 2 pay off in the rooms that matter.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"A well-designed training without follow-up produces knowledge. A well-designed training with structured follow-up produces practice."</p>
+          <cite>Steady Ground, Evidence Base</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Staying Connected</p>
+      <h2>The Steady Ground network.</h2>
+      <p>Participants who complete Steady Ground join a growing network of TFGBV educators committed to trauma-informed practice. The Steady Ground resource hub is available to all cohort participants throughout and beyond the cohort year.</p>
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Resource Hub</div>
+        <h3>Materials, readings, and updates</h3>
+        <p>The password-protected participant area of the Steady Ground website provides ongoing access to all training materials, a curated reading and video library, and resources added as the cohort's practice develops.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Additional CoP Sessions</div>
+        <h3>Continued peer consultation</h3>
+        <p>Organizations interested in additional Community of Practice sessions beyond the included follow-up are welcome to discuss this with Rachael. Additional sessions can be scheduled as the cohort's needs evolve.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Consultation</div>
+        <h3>One-on-one support</h3>
+        <p>Participants who encounter complex facilitation situations are welcome to reach out directly. Rachael is available for brief consultation by email, and can arrange a call for situations that warrant more extended discussion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 5 · ABOUT
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — About</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">About</p>
+    <h1>Twenty years of practice, one programme.</h1>
+    <p class="lede">Rachael Crowder is a clinician, educator, and organizational consultant whose work sits at the intersection of trauma-informed care, feminist pedagogy, and organizational health. Steady Ground is the convergence of all of it.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="bio-grid">
+      <div class="bio-plate">
+        <svg class="logo-svg logo-on bio-logo" viewBox="0 0 100 100" aria-hidden="true" style="opacity:.75"><use href="#sg-fig" transform="rotate(0,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(45,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(90,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(135,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(180,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(225,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(270,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(315,50,50) translate(50,19)"/></svg>
+        <div class="bio-name">Rachael Crowder</div>
+        <div class="bio-creds">PhD · RSW</div>
+        <div class="bio-tags">
+          <span class="bio-tag">Clinician</span>
+          <span class="bio-tag">Educator</span>
+          <span class="bio-tag">Supervisor</span>
+          <span class="bio-tag">Consultant</span>
+        </div>
+      </div>
+      <div class="bio-content">
+        <p class="eyebrow">About Rachael</p>
+        <h2>Clinician, educator, and organizational consultant.</h2>
+        <p>Rachael Crowder, PhD, RSW, is a social worker, psychotherapist, and educator based in Charlottetown, Prince Edward Island. Her practice integrates trauma-informed care, Internal Family Systems, Acceptance and Commitment Therapy, Jungian analysis, and somatic approaches — with an intersectional feminist analysis of the organizational and systemic dimensions of individual experience.</p>
+        <p>She held faculty appointments at the University of Calgary's Faculty of Social Work for ten years, where she designed curriculum and taught across direct practice, trauma, and organizational theory. Her academic work deepened a conviction she had carried from her clinical practice: that the health of individuals and the health of organizations are not separate questions, and that sustainable, ethical practice requires attending to both.</p>
+        <p>She has designed and delivered training for healthcare, legal, and social service professionals across Canada — including training on trauma-informed approaches for physicians, nurses, crown attorneys, educators, and community workers. She is a trained clinical supervisor and brings the same relational care to her supervision and training work that she brings to her direct practice.</p>
+        <div class="pullquote" style="margin:28px 0">
+          <p>"The room can only be as steady as the person at the front of it."</p>
+          <cite>Rachael Crowder</cite>
+        </div>
+        <p>Steady Ground is the convergence of her clinical expertise, her commitment to feminist organizational practice, and her direct experience supporting GBV educators in this specific and demanding work. She has witnessed what happens when facilitators are sent into these rooms without preparation — and she has designed the programme she wishes had existed when they needed it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Approach & Philosophy</p>
+      <h2>On the intersection of theory and practice.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <h3>On trauma-informed work</h3>
+        <p>Trauma-informed practice is not a collection of techniques. It is a way of being in the room — with people, with content, and with the uncertainty that is part of any genuine encounter. Frameworks like SAMHSA's six principles, Polyvagal Theory, and IFS provide the language and the structure. The relationship provides the ground.</p>
+        <p>Rachael brings this orientation to everything she does: to her clinical work, to her supervision, to her training, and to the organizations she consults with. What does it mean to be genuinely safe here? What does it mean to share power in a way that is more than performative? These questions are not answered once — they are returned to, in every room, with every group.</p>
+        <h3>On feminist pedagogy</h3>
+        <p>A feminist approach to education holds that the form of learning is never neutral. The arrangement of the room, the structure of the agenda, the degree to which participants' knowledge is treated as expertise — these are not administrative details. They are pedagogical choices that communicate something about whose knowledge counts and whose experience matters.</p>
+        <p>Rachael's teaching and training practice is built on the conviction that the most powerful learning happens when people feel genuinely seen, genuinely safe, and genuinely able to bring their own expertise into the room. Steady Ground is designed to produce exactly that.</p>
+      </div>
+      <div class="prose">
+        <h3>On organizational health</h3>
+        <p>Much of Rachael's consulting work focuses on the organizational conditions that make good clinical and educational work possible — or impossible. Burnout, moral distress, vicarious trauma, and the erosion of professional identity are not individual failures. They are organizational symptoms, and they require organizational responses.</p>
+        <p>She brings this systems lens to her training work as well. Steady Ground is not just about building individual facilitator competence — it is about building the conditions under which that competence can be sustained. The facilitator care plan, the Community of Practice, the peer consultation model — these are not extras. They are the programme's commitment to the people it is training.</p>
+        <h3>Areas of practice</h3>
+        <p>Rachael's clinical and consulting work spans trauma-informed care, feminist organizational practice, clinical supervision, adult learning and professional development, and vicarious trauma prevention. She is available for organizational consultation, clinical supervision, and training design on an ongoing basis.</p>
+        <p style="margin-top:24px">
+          <a href="/contact" class="btn-p">Work with Rachael</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 6 · CONTACT
+     ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-sep">Page — Contact</div>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">Contact</p>
+    <h1>Bring Steady Ground to your organization.</h1>
+    <p class="lede">Steady Ground is available to organizations delivering TFGBV education across Prince Edward Island and beyond. If you are building the capacity of a facilitation team to work with difficult content safely and effectively, we'd like to hear from you.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Get in Touch</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 24px">Tell us a little about your team and the work you do.</h2>
+        <form>
+          <div class="two-col" style="gap:20px;margin-bottom:0">
+            <div class="form-field">
+              <label>Your name</label>
+              <input type="text" placeholder="First and last name">
+            </div>
+            <div class="form-field">
+              <label>Your role</label>
+              <input type="text" placeholder="Job title">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Organization</label>
+            <input type="text" placeholder="Organization name">
+          </div>
+          <div class="form-field">
+            <label>Email address</label>
+            <input type="email" placeholder="your@organization.ca">
+          </div>
+          <div class="form-field">
+            <label>Phone (optional)</label>
+            <input type="tel" placeholder="(902) 555-0000">
+          </div>
+          <div class="form-field">
+            <label>What brings you here?</label>
+            <textarea placeholder="Tell us about your team, the facilitation work you do, and what you're hoping to build capacity for. How many facilitators are you looking to train? What is your approximate timeline?"></textarea>
+          </div>
+          <div class="form-field">
+            <label>How did you hear about Steady Ground?</label>
+            <select>
+              <option value="">Select one…</option>
+              <option>PEI Coalition for Women's Leadership</option>
+              <option>Colleague or peer referral</option>
+              <option>Social media</option>
+              <option>Web search</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-p">Send inquiry</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="contact-aside" style="margin-bottom:20px">
+          <h3>Who Steady Ground is for</h3>
+          <p>Steady Ground is designed for organizations whose staff regularly facilitate educational sessions on gender-based violence, online harassment, or related content — and who work with participants who may carry lived experience of what is being discussed.</p>
+          <p>Past and current partners include women's organizations, legal services, healthcare providers, academic institutions, and community advocacy groups. We welcome inquiries from organizations across PEI and Atlantic Canada.</p>
+        </div>
+        <div class="contact-aside" style="margin-bottom:20px">
+          <h3>What to include in your inquiry</h3>
+          <p>The most helpful inquiries include: the size of the facilitation team you want to train, a sense of the content areas they facilitate, your approximate timeline, and any particular challenges or needs your team is navigating. We'll respond within two business days.</p>
+        </div>
+        <div class="contact-aside">
+          <h3>Direct contact</h3>
+          <div class="contact-detail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:rachael@presentmoment.ca" style="color:var(--text-2);text-decoration:none">rachael@presentmoment.ca</a>
+          </div>
+          <div class="contact-detail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:9023306051" style="color:var(--text-2);text-decoration:none">(902) 330 6051</a>
+          </div>
+          <div class="contact-detail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-mid)" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span style="color:var(--text-2)">Charlottetown, Prince Edward Island</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Customization & Scope</p>
+      <h2>Steady Ground is adaptable.</h2>
+      <p>While the core programme is designed as a two-day in-person training, elements of Steady Ground can be adapted to your organization's specific context, content focus, and facilitation needs.</p>
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Content Focus</div>
+        <h3>Tailored to your facilitation domain</h3>
+        <p>The TFGBV content focus can be adapted for organizations working in adjacent areas: domestic violence, sexual violence, harassment and discrimination, or other activating content areas. The trauma-informed facilitation framework is transferable across contexts.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Community of Practice</div>
+        <h3>Ongoing follow-up support</h3>
+        <p>The standard programme includes one follow-up CoP session. Organizations seeking more sustained support for their facilitation team can discuss ongoing CoP sessions, organizational consultation, or clinical supervision arrangements.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Team Size</div>
+        <h3>Built for cohorts</h3>
+        <p>The recommended cohort size is 16–24 participants. For larger teams, multiple cohorts can be scheduled. For organizations with smaller teams, it may be possible to arrange joint cohorts with partner organizations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <svg class="logo-svg logo-on" width="28" height="28" viewBox="0 0 100 100" aria-hidden="true" style="opacity:.45"><use href="#sg-fig" transform="rotate(0,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(45,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(90,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(135,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(180,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(225,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(270,50,50) translate(50,19)"/><use href="#sg-fig" transform="rotate(315,50,50) translate(50,19)"/></svg>
+      <span class="foot-name">Steady Ground</span>
+    </div>
+    <div class="foot-links">
+      <a href="/programme">The Programme</a>
+      <a href="/framework">The Framework</a>
+      <a href="/resources">Resources</a>
+      <a href="/ongoing-learning">Ongoing Learning</a>
+      <a href="/about">About</a>
+      <a href="mailto:rachael@presentmoment.ca">rachael@presentmoment.ca</a>
+    </div>
+  </div>
+  <div class="foot-copy">© 2026 Rachael Crowder · Present Moment HDS · steady-ground.ca</div>
+</footer>
