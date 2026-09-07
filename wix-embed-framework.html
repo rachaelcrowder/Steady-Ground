@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Framework — Steady Ground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #F0F2EF;
+  --bg-alt:    #E4E8E2;
+  --bg-dark:   #3A5B45;
+  --bg-deep:   #2B4333;
+  --text:      #1C2520;
+  --text-2:    #5C6E62;
+  --text-on:   #EDF1EB;
+  --text-on-2: #9DBAA6;
+  --accent:    #3A5B45;
+  --accent-mid:#7CA992;
+  --cta:       #96581A;
+  --cta-h:     #7A4614;
+  --border:    #CAD0C8;
+  --border-dk: #4A6E58;
+  --nav-h:     64px;
+  --mw:        1100px;
+  --pad:       clamp(20px,4vw,48px);
+  --sp:        clamp(56px,7vw,96px);
+  --r:         8px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111913; --bg-alt:#172018;
+    --text:#D8E3D5; --text-2:#829E8B;
+    --border:#283527;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111913; --bg-alt:#172018;
+  --text:#D8E3D5; --text-2:#829E8B;
+  --border:#283527;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;text-wrap:balance;font-weight:400}
+a{color:inherit}
+p{color:var(--text-2);line-height:1.8}
+
+/* LAYOUT */
+.inner{max-width:var(--mw);margin:0 auto;padding:0 var(--pad)}
+.sec{padding:var(--sp) 0;background:var(--bg)}
+.sec-alt{padding:var(--sp) 0;background:var(--bg-alt)}
+.sec-dark{padding:var(--sp) 0;background:var(--bg-dark)}
+.sec-deep{padding:var(--sp) 0;background:var(--bg-deep)}
+
+/* NAV (static reference) */
+nav{
+  height:var(--nav-h);background:var(--bg);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 var(--pad);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.nav-name{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav-links a{text-decoration:none;color:var(--text-2);font-size:.875rem}
+.nav-cta{background:var(--cta)!important;color:#fff!important;padding:8px 18px;border-radius:4px;font-weight:500}
+
+/* PAGE INDICATOR */
+.page-indicator{
+  background:var(--bg-deep);
+  padding:12px var(--pad);
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--text-on-2);font-weight:500;text-align:center;
+}
+
+/* EYEBROW */
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent-mid);font-weight:500;margin-bottom:14px}
+.eyebrow-on{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:var(--text-on-2);font-weight:500;margin-bottom:14px}
+
+/* PAGE HERO */
+.page-hero{
+  background:var(--bg-dark);
+  padding:72px var(--pad) 80px;
+}
+.page-hero .inner{max-width:720px}
+.page-hero h1{font-size:clamp(2.2rem,4vw,3.6rem);color:var(--text-on);font-weight:300;font-style:italic;line-height:1.1;margin:16px 0 22px;letter-spacing:-.02em}
+.page-hero .lede{font-size:1.1rem;color:var(--text-on-2);line-height:1.75;font-weight:300}
+
+/* SECTION HEADS */
+.sec-head{max-width:600px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 16px}
+.sec-head p{font-size:.975rem}
+
+/* PROSE COLUMNS */
+.prose{max-width:680px}
+.prose p{margin-bottom:18px;font-size:.975rem}
+.prose h3{font-size:1.15rem;font-style:italic;color:var(--text);margin:32px 0 10px}
+.prose h4{font-size:.875rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-mid);margin:24px 0 8px;font-family:'DM Sans',system-ui,sans-serif;font-weight:500}
+.prose ul{margin:10px 0 18px 20px;list-style:disc}
+.prose ul li{font-size:.925rem;color:var(--text-2);line-height:1.7;margin-bottom:6px}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+
+/* CARDS */
+.card{border:1px solid var(--border);border-radius:var(--r);padding:32px 28px}
+.card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-mid);font-weight:500;margin-bottom:10px}
+.card h3{font-size:1.05rem;font-weight:400;font-style:italic;color:var(--text);margin-bottom:10px}
+.card p{font-size:.875rem;line-height:1.7}
+
+/* PILLAR GRID */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.pillar{background:var(--bg);padding:36px 32px}
+.pill-tag{display:inline-block;border:1px solid var(--border);color:var(--text-2);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.09em;padding:3px 9px;border-radius:3px;margin-bottom:16px}
+.pillar h3{font-size:1.1rem;font-weight:400;font-style:italic;color:var(--text);margin-bottom:10px}
+.pillar p{font-size:.875rem;line-height:1.72}
+.pillar ul{margin:10px 0 0 18px;list-style:disc}
+.pillar ul li{font-size:.85rem;color:var(--text-2);line-height:1.65;margin-bottom:5px}
+
+/* PRINCIPLE LIST */
+.principle-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:32px 0}
+.principle{background:var(--bg-alt);padding:24px 28px;display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start}
+.principle-num{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:var(--accent-mid);line-height:1}
+.principle-body h4{font-size:.95rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:6px;font-weight:400}
+.principle-body p{font-size:.85rem;line-height:1.65}
+
+/* OUTCOMES LIST */
+.outcomes{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.outcome{background:var(--bg);padding:16px 24px;display:flex;gap:14px;align-items:start;font-size:.9rem;color:var(--text-2);line-height:1.65}
+.outcome::before{content:'→';color:var(--accent-mid);font-size:.8rem;flex-shrink:0;margin-top:.1em}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.t-item{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:24px 0;border-top:1px solid var(--border)}
+.t-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent-mid);font-weight:500;padding-top:.1em}
+.t-body h4{font-size:.95rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:6px;font-weight:400}
+.t-body p{font-size:.875rem;line-height:1.65}
+
+/* RESOURCE TILES */
+.res-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.res-tile{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--r);padding:24px 20px;
+}
+.res-tile-icon{width:36px;height:36px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.res-tile h4{font-size:.9rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:8px;font-weight:400}
+.res-tile p{font-size:.8rem;line-height:1.6}
+
+/* PULLQUOTE */
+.pullquote{border-left:3px solid var(--accent-mid);padding-left:24px;margin:32px 0}
+.pullquote p{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:300;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:8px}
+.pullquote cite{font-size:.75rem;color:var(--text-2);font-style:normal;text-transform:uppercase;letter-spacing:.07em}
+
+/* BIO LAYOUT */
+.bio-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+.bio-plate{background:var(--bg-dark);border-radius:var(--r);padding:40px 28px;text-align:center}
+.bio-logo{width:80px;height:80px;display:block;margin:0 auto 20px}
+.bio-name{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;color:var(--text-on);margin-bottom:6px}
+.bio-creds{font-size:.72rem;color:var(--text-on-2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
+.bio-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.bio-tag{font-size:.68rem;border:1px solid var(--border-dk);color:var(--text-on-2);padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.07em}
+.bio-content h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(--text);margin:8px 0 28px;line-height:1.25}
+.bio-content p{font-size:.975rem;margin-bottom:16px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-field label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:500;color:var(--text-2)}
+.form-field input,
+.form-field textarea,
+.form-field select{
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:var(--r);padding:12px 14px;
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;
+  color:var(--text);width:100%;
+}
+.form-field textarea{min-height:120px;resize:vertical}
+.btn-p{display:inline-block;background:var(--cta);color:#fff;padding:13px 26px;border-radius:4px;font-weight:500;font-size:.9rem;text-decoration:none;transition:background .15s;border:none;cursor:pointer;font-family:inherit}
+.btn-p:hover{background:var(--cta-h)}
+.contact-aside{background:var(--bg-alt);border-radius:var(--r);padding:32px 28px}
+.contact-aside h3{font-size:1rem;font-style:italic;font-family:'Fraunces',Georgia,serif;color:var(--text);margin-bottom:16px;font-weight:400}
+.contact-aside p{font-size:.875rem;margin-bottom:14px}
+.contact-detail{font-size:.9rem;color:var(--text-2);margin-bottom:10px;display:flex;gap:10px;align-items:center}
+
+/* FOOTER */
+footer{background:var(--bg-deep);padding:44px var(--pad) 36px}
+.foot-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:32px;border-bottom:1px solid var(--border-dk)}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-name{font-family:'Fraunces',Georgia,serif;color:var(--text-on);font-size:.95rem;opacity:.75}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{color:var(--text-on-2);text-decoration:none;font-size:.85rem}
+.foot-copy{color:var(--text-on-2);font-size:.75rem;opacity:.55;margin-top:24px}
+
+/* LOGO */
+.logo-svg{fill:currentColor}
+.logo-accent{color:var(--accent)}
+.logo-on{color:var(--text-on)}
+
+/* SEPARATOR */
+.page-sep{
+  text-align:center;padding:32px var(--pad);
+  background:var(--bg-deep);color:var(--text-on-2);
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;
+  font-weight:500;border-top:1px solid var(--border-dk);
+  border-bottom:1px solid var(--border-dk);
+}
+
+/* LOCKBADGE */
+.lock-note{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.78rem;color:var(--text-on-2);
+  border:1px solid var(--border-dk);padding:6px 14px;
+  border-radius:20px;margin-top:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:820px){
+  .two-col,.three-col,.pillars,.bio-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .t-item{grid-template-columns:1fr}
+  .res-tiles{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .res-tiles{grid-template-columns:1fr}
+  .principle{grid-template-columns:1fr}
+}
+</style>
+
+<style>
+/* Wix embed overrides */
+nav, footer, .page-sep { display: none !important; }
+html, body { min-height: 1200px; }
+</style>
+<script>
+function reportHeight() {
+  var h = document.documentElement.scrollHeight;
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({ type: "height", value: h }, "*");
+  }
+  if (window.Wix && typeof window.Wix.setHeight === "function") {
+    window.Wix.setHeight(h);
+  }
+}
+window.addEventListener("load", reportHeight);
+window.addEventListener("resize", reportHeight);
+</script>
+
+</head>
+<body>
+<!-- SHARED SVG DEFS -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <defs>
+    <g id="sg-fig">
+      <circle cx="0" cy="-12" r="4"/>
+      <polygon points="-4.5,-7.5 4.5,-7.5 2.8,-0.5 -2.8,-0.5"/>
+      <rect x="-11.5" y="-7.2" width="7" height="2.6" rx="1.3"/>
+      <rect x="4.5" y="-7.2" width="7" height="2.6" rx="1.3"/>
+      <g transform="translate(-1.6,-0.5) rotate(17.19)"><rect x="-1.5" y="0" width="3" height="8" rx="1.3"/></g>
+      <g transform="translate(1.6,-0.5) rotate(-17.19)"><rect x="-1.5" y="0" width="3" height="8" rx="1.3"/></g>
+    </g>
+  </defs>
+</svg>
+
+<div class="page-hero">
+  <div class="inner">
+    <p class="eyebrow-on">The Framework</p>
+    <h1>Grounded in evidence,<br>built for practice.</h1>
+    <p class="lede">Steady Ground integrates four evidence-based frameworks into a coherent, field-tested facilitation practice. Each one shapes not only what participants learn but the learning environment they experience.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">Why four frameworks?</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.2;margin:12px 0 20px">Most facilitation training teaches content. This one teaches practice.</h2>
+        <p>Knowing what TFGBV is does not prepare a facilitator for the moment someone in the room is living it. Understanding trauma-informed principles intellectually is not the same as holding a room according to them. The frameworks at the heart of Steady Ground are integrated and mutually reinforcing — chosen not because they are individually persuasive, but because together they describe the full terrain of what happens in a room where difficult content is being taught.</p>
+        <p>SAMHSA establishes the principles. Polyvagal Theory explains the neuroscience. IFS offers the relational lens. Feminist pedagogy holds the structural analysis. Each one is essential; none of them is sufficient alone.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"The form of a learning experience teaches as much as its content."</p>
+          <cite>Intersectional Feminist Pedagogy principle</cite>
+        </div>
+        <p style="font-size:.9rem;color:var(--text-2);line-height:1.75">Steady Ground is not a programme about these frameworks. It is a programme that enacts them. The learning environment is designed according to the same principles it teaches — which means participants don't just hear about co-regulation, shared power, and genuine choice. They experience them, in the room, with their training cohort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 1 · SAMHSA</p>
+      <h2>The six trauma-informed principles — in the room, not just in theory.</h2>
+      <p>The Substance Abuse and Mental Health Services Administration (SAMHSA) framework articulates six core principles for trauma-informed approaches. In Steady Ground, these principles are applied not to survivor-facing service delivery, but to the design of any learning environment where participants may carry lived experience of the content being discussed.</p>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle">
+        <div class="principle-num">1</div>
+        <div class="principle-body">
+          <h4>Safety</h4>
+          <p>Physical and emotional safety is established — not assumed — through transparent communication, consistent structure, community agreements, and the provision of genuine choices about participation. A quiet room is available throughout both days. Participants always know what is coming next.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">2</div>
+        <div class="principle-body">
+          <h4>Trustworthiness & Transparency</h4>
+          <p>The programme's design, purpose, and structure are made explicit. Facilitators explain why they do what they do. Scope and confidentiality limits are clearly stated. Participants are not surprised by anything about the day, including difficult content.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">3</div>
+        <div class="principle-body">
+          <h4>Peer Support</h4>
+          <p>The cohort model is central to Steady Ground's design. Participants learn alongside people doing the same work, and peer consultation is structured into both days and the follow-up Community of Practice session. This work is not done alone.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">4</div>
+        <div class="principle-body">
+          <h4>Collaboration & Mutuality</h4>
+          <p>The power dynamic between facilitators and participants is made visible and actively flattened. Community agreements are built together, not handed down. Participants shape the session through their expertise and experience.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">5</div>
+        <div class="principle-body">
+          <h4>Empowerment, Voice & Choice</h4>
+          <p>Participation is always invitational. Content notes are offered before difficult material. Participants are given genuine options about how they engage — and the options are real, not performative. The programme models the exact facilitation behaviour it is teaching.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">6</div>
+        <div class="principle-body">
+          <h4>Cultural, Historical & Gender Issues</h4>
+          <p>TFGBV is produced by systems of power, not individuals. The programme's analysis is intersectional throughout, attending explicitly to how race, disability, Indigeneity, and sexual orientation compound vulnerability to online harassment and shape what safety looks like in a room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 2 · Polyvagal Theory</p>
+      <h2>The neuroscience of why safety is not just a feeling.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Porges' Polyvagal Theory describes three autonomic circuits governing human response to perceived safety and threat. The ventral vagal complex supports social engagement, connection, and learning. The sympathetic system drives fight and flight. The dorsal vagal complex governs freeze and collapse. These states are not chosen — they are neurological responses that happen to us, in real time, in response to what the body perceives as safe or dangerous.</p>
+        <p>For facilitators delivering TFGBV education, this matters at every level. Participants who carry lived experience of the content may enter a sympathetic or dorsal state without any visible warning sign. A facilitator who cannot recognize the difference between disengagement and freeze, or between strong engagement and activation, will respond in ways that escalate rather than resolve the situation.</p>
+        <h3>Co-regulation as a facilitation tool</h3>
+        <p>Co-regulation is the process by which one regulated nervous system helps regulate another. When a facilitator is calm, their voice, pace, posture, and presence have a measurable effect on the nervous systems around them. This is not metaphor — it is neurobiological reality, and it is the primary reason that facilitator self-regulation is a professional competency, not a personal preference.</p>
+        <p>Steady Ground trains facilitators to recognize activation cues in groups, to slow their own pace and voice when the room's regulation is shifting, and to use the presence of a co-facilitator — the most powerful co-regulatory resource in a co-facilitated room — deliberately.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-label">Research basis</div>
+          <h3>Learning requires a regulated nervous system</h3>
+          <p>When a learning environment feels unpredictable or emotionally charged, stress disrupts prefrontal cortex function. Attention narrows. Memory encoding is compromised. This is not about willingness to learn — it is neurobiology. The design of a predictable, structured, and physically comfortable learning environment is an evidence-based imperative.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">In the room</div>
+          <h3>What this looks like in practice</h3>
+          <p>Facilitators learn to read autonomic cues — scanning for signs of activation or shutdown — and to respond before rupture, not after. The co-regulation lab in Day 1 produces a first-person experience of these dynamics rather than an intellectual understanding of them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 3 · Internal Family Systems</p>
+      <h2>Protective patterns — with curiosity, not judgment.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Internal Family Systems (IFS), developed by Richard Schwartz, is a non-pathologizing framework for understanding protective responses in groups. In any learning environment where content is emotionally charged, participants may present with "parts" that have developed to manage vulnerability: the participant who dominates discussion, the one who deflects with humour, the one who becomes very still and checks out, the one who rushes to fix everyone else's distress.</p>
+        <p>These responses are not problems to be managed. They are adaptive protections — the result of prior experiences in rooms where it was not safe to be openly affected. A parts-informed facilitator recognizes them as such, and responds with curiosity and genuine warmth rather than redirection, correction, or performance of neutrality.</p>
+        <h3>What parts-informed facilitation looks like</h3>
+        <p>It means not calling on the person who has checked out, and not filling the space they have left with your own material. It means acknowledging the protector who is dominating — directly, warmly, and without shaming — and creating enough space for others to contribute. It means not being alarmed by the person in tears, and not being deceived by the person laughing.</p>
+        <p>IFS offers facilitators a vocabulary for internal experience that is both accessible and clinically grounded, and that works as well in a training room as in a therapy room.</p>
+      </div>
+      <div>
+        <div class="pullquote">
+          <p>"Protective responses in groups are adaptive — they tell you something about the room."</p>
+          <cite>Steady Ground, Day 1</cite>
+        </div>
+        <div class="card">
+          <div class="card-label">Key distinction</div>
+          <h3>Parts vs. pathology</h3>
+          <p>A parts-informed lens is a non-pathologizing one. The participant who is deflecting with humour is not being difficult. The participant who has gone very quiet is not being passive-aggressive. Each is doing exactly what they know how to do in a room that feels like it might not be safe. The facilitator's job is to make the room safer — not to manage the symptom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Framework 4 · Feminist Pedagogy</p>
+      <h2>The structure of a room is also a message about power.</h2>
+    </div>
+    <div class="two-col">
+      <div class="prose">
+        <p>Intersectional feminist pedagogy holds that GBV is produced by systems of power, not by individual perpetrators. This analysis is not background knowledge — it is the lens through which every element of the training is designed and delivered.</p>
+        <p>What does it mean, practically? It means the training room is designed to enact shared power, not to describe it. Community agreements are built together. Facilitator expertise is presented as one kind of knowing, not the only kind. The lived experience participants bring to the room is treated as expertise, not as risk to be managed.</p>
+        <h3>Gender-transformative, not gender-accommodating</h3>
+        <p>There is an important distinction between training that accommodates gender — acknowledging that women face specific challenges and trying not to make things worse — and training that is gender-transformative, meaning it actively challenges the power structures and norms that produce gender inequality. Steady Ground is the latter. It attends explicitly to how gender compounds vulnerability to TFGBV, and it treats the elimination of that vulnerability as a structural, not an individual, project.</p>
+        <h3>Intersectionality as method</h3>
+        <p>Race, disability, Indigeneity, gender expression, and sexual orientation are not add-ons to the gender analysis. They are part of it. Women facing compounded marginalization on the basis of these identities experience heightened rates and more severe forms of TFGBV. The training content and facilitation approach must reflect this complexity — not in a perfunctory way, but as a fundamental orientation to the work.</p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-label">Design principle</div>
+          <h3>The form teaches as much as the content</h3>
+          <p>A training about shared power that does not share power has already undermined its own message. Steady Ground is designed so that the experience of being in the room confirms and extends what the content teaches — not because it is tidy, but because it is true.</p>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <div class="card-label">Evidence-not-exposure</div>
+          <h3>Teaching TFGBV without causing it</h3>
+          <p>A feminist approach to TFGBV education means not reproducing harm in the name of education. Abusive content is never displayed, read aloud, or re-enacted. Facilitators teach through evidence, categories, and survivor-informed framing — and they are trained to facilitate the same way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
